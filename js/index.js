@@ -78,3 +78,11 @@ const doubleClick2 = document.querySelector('.content-pick');
 doubleClick2.addEventListener('dblclick', () => {
     doubleClick2.style.backgroundColor = 'white';
 });
+
+// prevent default
+
+const stopLinks = document.querySelector('.nav-link');
+
+stopLinks.addEventListener('click', (e) => {
+    e.preventDefault();
+});
