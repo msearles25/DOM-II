@@ -55,7 +55,7 @@ window.addEventListener('resize', () => {
 const scrollEvent = document.querySelector('body');
 window.addEventListener('scroll', () => {
     scrollEvent.style.backgroundColor = '#fc0';
-})
+});
 
 // select 
 
@@ -64,10 +64,17 @@ window.addEventListener('scroll', () => {
 //     document.querySelector('.intro h2').innerHTML = 'You selected some text';
 // });
 
-// double click
+// double click and stop propagation
 const doubleClick1 = document.querySelectorAll('.destination h4');
 doubleClick1.forEach(e => {
-    e.addEventListener('dblclick', () => {
+    e.addEventListener('dblclick', (event) => {
         e.style.color = '#17A2B8';
+        event.stopPropagation();
     })
-})
+});
+
+// second double click
+const doubleClick2 = document.querySelector('.content-pick');
+doubleClick2.addEventListener('dblclick', () => {
+    doubleClick2.style.backgroundColor = 'white';
+});
