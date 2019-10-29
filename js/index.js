@@ -59,11 +59,21 @@ window.addEventListener('scroll', () => {
 
 // select 
 
-// const selectEvent = document.querySelector('.logo-heading');
-// selectEvent.addEventListener('select', () => {
-//     document.querySelector('.intro h2').innerHTML = 'You selected some text';
-// });
+const inputBox = document.createElement('input');
+const paragraph1 = document.createElement('p');
+const heading = document.querySelector('.logo-heading');
 
+inputBox.id = 'inputBoxSelect';
+inputBox.value = 'Hello World';
+paragraph1.id = 'paraSelect';
+
+heading.append(inputBox);
+heading.append(paragraph1);
+
+const selectEvent = document.querySelector('#inputBoxSelect');
+selectEvent.addEventListener('select', () => {
+    document.getElementById('paraSelect').innerHTML = 'You selected some text!';
+});
 // double click and stop propagation
 const doubleClick1 = document.querySelectorAll('.destination h4');
 doubleClick1.forEach(e => {
