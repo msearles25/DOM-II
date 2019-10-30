@@ -30,6 +30,39 @@ wheelEvent.addEventListener('wheel', () => {
 
 // drag drop
 
+// const div1 = document.createElement('div');
+// div1.className = 'dropTarget';
+// div1.ondrop = 'drop(event)';
+// div1.ondragover = 'allowDrop(event)';
+// div1.style.width = '100px';
+// div1.style.height = '100px';
+// div1.style.border = '1px solid black';
+
+// const div2 = document.createElement('div');
+// div2.className = 'dropTarget';
+// div2.ondrop = 'drop(event)';
+// div2.ondragover = 'allowDrop(event)';
+// div2.style.width = '100px';
+// div2.style.height = '100px';
+// div2.style.border = '1px solid black';
+
+// const paraDrag = document.createElement('p');
+// paraDrag.ondragstart = 'dragStart(event)';
+// paraDrag.draggable = 'true';
+
+// const footerDrag = document.querySelector('footer');
+
+// footerDrag.append(div1, div2, paraDrag);
+
+// copy event
+
+const copyEvent = document.querySelector('body');
+
+copyEvent.addEventListener('copy', (event) => {
+    event.clipboardData.setData('text/plain', 'QUIT STEALING');
+    event.preventDefault();
+});
+
 // load
 window.addEventListener('load', () => {
     alert('Loaded!');
