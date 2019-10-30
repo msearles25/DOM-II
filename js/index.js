@@ -30,29 +30,41 @@ wheelEvent.addEventListener('wheel', () => {
 
 // drag drop
 
-// const div1 = document.createElement('div');
-// div1.className = 'dropTarget';
-// div1.ondrop = 'drop(event)';
-// div1.ondragover = 'allowDrop(event)';
-// div1.style.width = '100px';
-// div1.style.height = '100px';
-// div1.style.border = '1px solid black';
+const bus = document.querySelector('.intro img');
 
-// const div2 = document.createElement('div');
-// div2.className = 'dropTarget';
-// div2.ondrop = 'drop(event)';
-// div2.ondragover = 'allowDrop(event)';
-// div2.style.width = '100px';
-// div2.style.height = '100px';
-// div2.style.border = '1px solid black';
+bus.onmousedown = function(event) {
+    
+    // gets the picture ready to move by making it absolute and making the zindex 1000
+    bus.style.position = 'absolute'; 
+    bus.style.zindex = '1000';
+    // moves it to the body
+    document.body.append(bus);
+    
+    // makes the function to center it at the coords
+    function moveAt(pageX, pageY) {
+        bus.style.left = pageX - bus.offsetWidth / 2 + 'px';
+        bus.style.top = pageY - bus.offsetWidth / 6 + 'px';
+    }
 
-// const paraDrag = document.createElement('p');
-// paraDrag.ondragstart = 'dragStart(event)';
-// paraDrag.draggable = 'true';
+     // centers it at the coords
+     moveAt(event.pageX, event.pageY);
 
-// const footerDrag = document.querySelector('footer');
+     function onMouseMove(event) {
+         moveAt(event.pageX, event.pageY);
+     }
 
-// footerDrag.append(div1, div2, paraDrag);
+    //  moving the bus on mouse movement
+     document.addEventListener('mousemove', onMouseMove);
+
+    //  droping the bus
+     bus.onmouseup = function() {
+         document.removeEventListener('mousemove', onMouseMove);
+     }
+
+     bus.ondragstart = function () {
+         return false;
+     }
+}
 
 // copy event
 
